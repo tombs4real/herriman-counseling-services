@@ -1158,6 +1158,74 @@ button.frm_button_submit:hover {
     }
 }
 
+/****************************** 
+Next/Prev Pagination
+******************************/
+
+.np-posts-nav {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 100px auto;
+}
+  
+.np-posts-nav a {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    text-decoration: none;
+    line-height: 1.2;
+    transition: all 0.8s linear;
+}
+
+.np-posts-nav a.next{
+    text-align: right;
+}
+
+.np-posts-nav a:hover{
+    text-decoration: underline;
+}
+
+.np-posts-nav h4,
+.np-posts-nav strong {
+    line-height: 1.2;
+    text-transform: uppercase;
+    margin: 8px 0px;
+}
+  
+.np-posts-nav__thumbnail img {
+    border-radius: 50%;
+    box-shadow: 0px 10px 20px 0px rgb(0 0 0 / 10%);
+    transition: all 0.3s ease-in-out;
+}
+
+.np-posts-nav__thumbnail img:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 20px 30px 0px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 600px) {
+    .np-posts-nav {
+
+    }
+    .np-posts-nav a  {
+        font-size: 13px;
+        line-height: 0.8;
+        gap: 8px;
+        width: 100%;
+    }
+    .np-posts-nav h4, 
+    .np-posts-nav strong {
+        font-size: 11px;
+        margin: 4px 0px;
+        max-width: 100%;
+    }
+    .np-posts-nav__thumbnail img{
+        width: 50px;
+    }
+    
+}
 
 /****************************** 
 Animations

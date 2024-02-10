@@ -233,3 +233,50 @@ function register_meta_boxes( $meta_boxes ) {
 	);
 	return $meta_boxes;
 }
+
+function np_posts_nav(){
+    $next_post = get_next_post();
+    $prev_post = get_previous_post();
+      
+    if ( $next_post || $prev_post ) : ?>
+      
+        <div class="np-posts-nav">
+            <div>
+                <?php if ( ! empty( $prev_post ) ) : ?>
+                    <a href="<?php echo get_permalink( $prev_post ); ?>">
+                        <div>
+                            <div class="np-posts-nav__thumbnail np-posts-nav__prev">
+                                <?php echo get_the_post_thumbnail( $prev_post, [ 100, 100 ] ); ?>
+                            </div>
+                        </div>
+                        <div>
+                            <strong>
+                                <?php _e( 'Previous', 'textdomain' ) ?>
+                            </strong>
+                            <h4><?php echo get_the_title( $prev_post ); ?></h4>
+                        </div>
+                    </a>
+                <?php endif; ?>
+            </div>
+            <div>
+                <?php if ( ! empty( $next_post ) ) : ?>
+                    <a href="<?php echo get_permalink( $next_post ); ?>" class="next">
+						<div>
+                            <strong>
+                                <?php _e( 'Next', 'textdomain' ) ?>
+                            </strong>
+                            <h4><?php echo get_the_title( $next_post ); ?></h4>
+                        </div>
+						<div>
+                            <div class="np-posts-nav__thumbnail np-posts-nav__next">
+                                <?php echo get_the_post_thumbnail( $next_post, [ 100, 100 ] ); ?>
+                            </div>
+                        </div>
+                        
+                    </a>
+                <?php endif; ?>
+            </div>
+        </div>
+      
+    <?php endif;
+}
